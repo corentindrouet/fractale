@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 09:10:53 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/04/19 09:24:36 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/04/20 13:19:05 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(void)
 
 	fract.mlx = mlx_init();
 	fract.win = mlx_new_window(fract.mlx, 1600, 1000, "Fract'ol");
+	Mandelbrot(&fract);
 	mlx_hook(fract.win, 2, 0, keypress, &fract);
 	mlx_loop(fract.mlx);
 }

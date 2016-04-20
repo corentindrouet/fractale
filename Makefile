@@ -6,13 +6,15 @@
 #    By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/08 14:32:27 by cdrouet           #+#    #+#              #
-#    Updated: 2016/04/19 09:18:48 by cdrouet          ###   ########.fr        #
+#    Updated: 2016/04/20 13:26:25 by cdrouet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 
 SRC = main.c \
+	  img.c \
+	  Mandelbrot.c \
 
 BIN = $(SRC:.c=.o)
 
@@ -23,7 +25,6 @@ MINIFLAG = -lmlx -framework OpenGL -framework Appkit
 LIB = -Llibft/ -lftprintf
 
 $(NAME) :
-	make -C libft/ re ;
 	gcc $(FLAG) -c $(SRC);
 	gcc $(FLAG) -o $(NAME) $(BIN) $(MINIFLAG) $(LIB)
 
@@ -35,10 +36,10 @@ libftfclean :
 libftclean :
 	make -C libft/ clean
 
-clean : libftclean
+clean : 
 	rm -f $(BIN)
 
-fclean : clean libftfclean
+fclean : clean 
 	rm -f $(NAME)
 
 re : fclean all
