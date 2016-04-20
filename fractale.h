@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 09:12:22 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/04/20 13:19:08 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/04/20 14:47:35 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct		s_mlx
 	void			*win;
 }					t_mlx;
 
-void				Mandelbrot(t_mlx *mlx);
+void				Mandelbrot(t_mlx *mlx, int zoom);
 int					write_img(int x, int y, t_img *jpg);
 t_img				*t_img_init(void *mlx, int x, int y);
 
