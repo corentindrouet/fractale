@@ -6,7 +6,7 @@
 #    By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/08 14:32:27 by cdrouet           #+#    #+#              #
-#    Updated: 2016/04/20 13:26:25 by cdrouet          ###   ########.fr        #
+#    Updated: 2016/04/21 15:43:27 by cdrouet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,8 @@ MINIFLAG = -lmlx -framework OpenGL -framework Appkit
 LIB = -Llibft/ -lftprintf
 
 $(NAME) :
-	gcc $(FLAG) -c $(SRC);
-	gcc $(FLAG) -o $(NAME) $(BIN) $(MINIFLAG) $(LIB)
+	gcc -march=native $(FLAG) -c $(SRC);
+	gcc -march=native $(FLAG) -o $(NAME) $(BIN) $(MINIFLAG) $(LIB)
 
 all : $(NAME)
 
