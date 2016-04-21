@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 09:12:22 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/04/20 14:47:35 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/04/21 12:58:01 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@ typedef struct		s_pts
 	int				x;
 	int				y;
 }					t_pts;
+
+typedef struct		s_coord
+{
+	float			x1;
+	float			x2;
+	float			y1;
+	float			y2;
+}					t_coord;
 
 typedef struct		s_img
 {
@@ -39,7 +47,13 @@ typedef struct		s_mlx
 	void			*win;
 }					t_mlx;
 
-void				Mandelbrot(t_mlx *mlx, int zoom);
+typedef struct		s_all
+{
+	t_mlx			fract;
+	t_coord			pt;
+}					t_all;
+
+void				Mandelbrot(t_mlx *mlx, int zoom, t_coord pt);
 int					write_img(int x, int y, t_img *jpg);
 t_img				*t_img_init(void *mlx, int x, int y);
 

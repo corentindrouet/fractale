@@ -6,13 +6,14 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 12:46:02 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/04/20 15:18:10 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/04/21 14:29:43 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractale.h"
+#include <stdio.h>
 
-void	Mandelbrot(t_mlx *mlx, int zoom)
+void	Mandelbrot(t_mlx *mlx, int zoom, t_coord pt)
 {
 	t_img	*MB;
 	int		i[4];
@@ -21,18 +22,18 @@ void	Mandelbrot(t_mlx *mlx, int zoom)
 	float	j[5];
 
 	MB = t_img_init(mlx->mlx, 1600, 1000);
-	MB->color = mlx_get_color_value(mlx->mlx, 0x000FFF);
+	MB->color = mlx_get_color_value(mlx->mlx, 0x0000FF);
 	i[0] = -1;
-	i[3] = 30 + zoom;
-	x = (1600 / 2.7) + zoom;
-	y = (1000 / 2.4) + zoom;
+	i[3] = 50 + zoom;
+	x = (1600 / (pt.x2 - pt.x1)) + zoom;
+	y = (1000 / (pt.y2 - pt.y1)) + zoom;
 	while (++i[0] < 1600)
 	{
 		i[1] = -1;
 		while (++i[1] < 1000)
 		{
-			j[0] = i[0] / x - 2.1;
-			j[1] = i[1] / y - 1.2;
+			j[0] = i[0] / x + pt.x1;
+			j[1] = i[1] / y + pt.y1;
 			j[2] = 0;
 			j[3] = 0;
 			i[2] = 0;
@@ -47,9 +48,9 @@ void	Mandelbrot(t_mlx *mlx, int zoom)
 				write_img(i[1], i[0], MB);
 			else
 			{
-				MB->color = mlx_get_color_value(mlx->mlx, (0x000FFF / i[2]));
+				MB->color = mlx_get_color_value(mlx->mlx, (i[2] * 0x0000FF / i[3]));
 				write_img(i[1], i[0], MB);
-				MB->color = mlx_get_color_value(mlx->mlx, 0x000FFF);
+				MB->color = mlx_get_color_value(mlx->mlx, 0x0000FF);
 			}
 		}
 	}
