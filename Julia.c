@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Mandelbrot.c                                       :+:      :+:    :+:   */
+/*   Julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/20 12:46:02 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/04/27 08:33:37 by cdrouet          ###   ########.fr       */
+/*   Created: 2016/05/06 11:22:25 by cdrouet           #+#    #+#             */
+/*   Updated: 2016/05/06 11:30:45 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractale.h"
 #include <stdio.h>
 
-void	Mandelbrot(t_mlx *mlx, int zoom, t_coord pt, t_img *MB)
+void	Julia(t_mlx *mlx, int zoom, t_coord pt, t_img *MB)
 {
 	int		i[4];
 	float	x;
@@ -31,10 +31,10 @@ void	Mandelbrot(t_mlx *mlx, int zoom, t_coord pt, t_img *MB)
 		i[1] = -1;
 		while (++i[1] < 1000)
 		{
-			j[0] = i[0] / x + pt.x1;
-			j[1] = i[1] / y + pt.y1;
-			j[2] = 0;
-			j[3] = 0;
+			j[2] = i[0] / x + pt.x1;
+			j[3] = i[1] / y + pt.y1;
+			j[0] = 0.285;
+			j[1] = 0.01;
 			i[2] = 0;
 			while (((j[2] * j[2]) + (j[3] * j[3])) < 4 && i[2] < i[3])
 			{

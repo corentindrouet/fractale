@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 09:12:22 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/04/21 12:58:01 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/06 11:26:16 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,11 @@ typedef struct		s_all
 {
 	t_mlx			fract;
 	t_coord			pt;
+	t_img			*MB;
 }					t_all;
 
-void				Mandelbrot(t_mlx *mlx, int zoom, t_coord pt);
+void				Mandelbrot(t_mlx *mlx, int zoom, t_coord pt, t_img *MB);
+void				Julia(t_mlx *mlx, int zoom, t_coord pt, t_img *MB);
 int					write_img(int x, int y, t_img *jpg);
 t_img				*t_img_init(void *mlx, int x, int y);
 
