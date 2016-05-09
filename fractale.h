@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 09:12:22 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/09 11:33:19 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/09 13:05:38 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,15 @@ typedef struct		s_mlx
 
 typedef struct		s_all
 {
-//	void			*mlx;
 	t_mlx			*fract;
-//	t_coord			pt;
-//	t_img			*MB;
 }					t_all;
 
+int					mouse_move(int x, int y, t_mlx *param);
+int					keypress(int keycode, void *param);
+int					mouse_hook(int button, int x, int y, void *param);
 t_mlx				*init_win(void *mlx, char **argv);
 void				Mandelbrot(int zoom, t_mlx f);
-void				Julia(int zoom, t_mlx f);
+void				Julia(int zoom, t_mlx f, float test);
 int					write_img(int x, int y, t_img *jpg);
 t_img				*t_img_init(void *mlx, int x, int y);
 
