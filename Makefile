@@ -6,7 +6,7 @@
 #    By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/08 14:32:27 by cdrouet           #+#    #+#              #
-#    Updated: 2016/05/06 11:25:58 by cdrouet          ###   ########.fr        #
+#    Updated: 2016/05/09 10:44:46 by cdrouet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRC = main.c \
 	  img.c \
 	  Mandelbrot.c \
 	  Julia.c \
+	  init_win.c \
 
 BIN = $(SRC:.c=.o)
 

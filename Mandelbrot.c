@@ -6,33 +6,33 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 12:46:02 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/04/27 08:33:37 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/09 11:14:37 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractale.h"
 #include <stdio.h>
 
-void	Mandelbrot(t_mlx *mlx, int zoom, t_coord pt, t_img *MB)
+void	Mandelbrot(/*t_mlx *mlx, */int zoom, t_mlx f/*, t_coord pt, t_img *MB*/)
 {
 	int		i[4];
 	float	x;
 	float	y;
 	float	j[5];
 
-//	MB = t_img_init(mlx->mlx, 1600, 1000);
-	MB->color = mlx_get_color_value(mlx->mlx, 0x0000FF);
+	f.MB = t_img_init(f.mlx, 1600, 1000);
+	f.MB->color = mlx_get_color_value(f.mlx, 0x0000FF);
 	i[0] = -1;
 	i[3] = 50 + zoom * 1.5;
-	x = (1600 / (pt.x2 - pt.x1)) + zoom * 0.5;
-	y = (1000 / (pt.y2 - pt.y1)) + zoom * 0.5;
+	x = (1600 / (f.pt.x2 - f.pt.x1)) + zoom * 0.5;
+	y = (1000 / (f.pt.y2 - f.pt.y1)) + zoom * 0.5;
 	while (++i[0] < 1600)
 	{
 		i[1] = -1;
 		while (++i[1] < 1000)
 		{
-			j[0] = i[0] / x + pt.x1;
-			j[1] = i[1] / y + pt.y1;
+			j[0] = i[0] / x + f.pt.x1;
+			j[1] = i[1] / y + f.pt.y1;
 			j[2] = 0;
 			j[3] = 0;
 			i[2] = 0;
@@ -44,15 +44,15 @@ void	Mandelbrot(t_mlx *mlx, int zoom, t_coord pt, t_img *MB)
 				i[2]++;
 			}
 			if (i[2] == i[3])
-				write_img(i[1], i[0], MB);
+				write_img(i[1], i[0], f.MB);
 			else
 			{
-				MB->color = mlx_get_color_value(mlx->mlx, (i[2] * 0x0000FF / i[3]));
-				write_img(i[1], i[0], MB);
-				MB->color = mlx_get_color_value(mlx->mlx, 0x0000FF);
+				f.MB->color = mlx_get_color_value(f.mlx, (i[2] * 0x0000FF / i[3]));
+				write_img(i[1], i[0], f.MB);
+				f.MB->color = mlx_get_color_value(f.mlx, 0x0000FF);
 			}
 		}
 	}
-	mlx_put_image_to_window(mlx->mlx, mlx->win, MB->img, 0, 0);
-//	mlx_destroy_image(mlx->mlx, MB->img);
+	mlx_put_image_to_window(f.mlx, f.win, f.MB->img, 0, 0);
+	mlx_destroy_image(f.mlx, f.MB->img);
 }
