@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 12:46:02 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/09 11:27:25 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/09 14:56:55 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ void	Mandelbrot(int zoom, t_mlx f)
 	float	y;
 	float	j[5];
 
-	f.MB = t_img_init(f.mlx, 1600, 1000);
+//	f.MB = t_img_init(f.mlx, 1600, 1000);
 	f.MB->color = mlx_get_color_value(f.mlx, 0x0000FF);
 	i[0] = -1;
 	i[3] = 50 + zoom * 1.5;
-	x = (1600 / (f.pt.x2 - f.pt.x1)) + zoom * 0.5;
-	y = (1000 / (f.pt.y2 - f.pt.y1)) + zoom * 0.5;
-	while (++i[0] < 1600)
+	x = (800 / (f.pt.x2 - f.pt.x1)) + zoom * 0.5;
+	y = (800 / (f.pt.y2 - f.pt.y1)) + zoom * 0.5;
+	while (++i[0] < 800)
 	{
 		i[1] = -1;
-		while (++i[1] < 1000)
+		while (++i[1] < 800)
 		{
 			j[0] = i[0] / x + f.pt.x1;
 			j[1] = i[1] / y + f.pt.y1;
@@ -54,5 +54,5 @@ void	Mandelbrot(int zoom, t_mlx f)
 		}
 	}
 	mlx_put_image_to_window(f.mlx, f.win, f.MB->img, 0, 0);
-	mlx_destroy_image(f.mlx, f.MB->img);
+//	mlx_destroy_image(f.mlx, f.MB->img);
 }

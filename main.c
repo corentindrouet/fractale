@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 09:10:53 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/09 13:06:39 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/09 14:36:07 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	main(int argc, char **argv)
 		if (all.fract[i].win)
 		{
 			mlx_hook(all.fract[i].win, 2, 0, keypress, &(all.fract[i]));
+			mlx_hook(all.fract[i].win, 3, 0, keyrelease, &(all.fract[i]));
 			mlx_hook(all.fract[i].win, 4, 0, mouse_hook, &(all.fract[i]));
 			if (all.fract[i].c == 'j')
 				mlx_hook(all.fract[i].win, 6, 0, mouse_move, &(all.fract[i]));

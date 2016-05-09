@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 09:12:22 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/09 13:05:38 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/09 14:38:09 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ typedef struct		s_mlx
 	t_coord			pt;
 	t_img			*MB;
 	char			c;
+	int				zoom;
+	int				enable;
 }					t_mlx;
 
 typedef struct		s_all
@@ -55,8 +57,9 @@ typedef struct		s_all
 	t_mlx			*fract;
 }					t_all;
 
+int					keyrelease(int code, t_mlx *param);
 int					mouse_move(int x, int y, t_mlx *param);
-int					keypress(int keycode, void *param);
+int					keypress(int keycode, t_mlx *param);
 int					mouse_hook(int button, int x, int y, void *param);
 t_mlx				*init_win(void *mlx, char **argv);
 void				Mandelbrot(int zoom, t_mlx f);

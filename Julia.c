@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/06 11:22:25 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/09 13:17:55 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/09 14:56:31 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ void	Julia(int zoom, t_mlx f, float test)
 	float	y;
 	float	j[5];
 
-	f.MB = t_img_init(f.mlx, 1600, 1000);
+//	f.MB = t_img_init(f.mlx, 1600, 1000);
 	f.MB->color = mlx_get_color_value(f.mlx, 0xFFFFFF);
 	i[0] = -1;
 	i[3] = 100 + zoom * 1.5;
-	x = (1600 / (f.pt.x2 - f.pt.x1)) + zoom * 0.5;
-	y = (1000 / (f.pt.y2 - f.pt.y1)) + zoom * 0.5;
-	while (++i[0] < 1600)
+	x = (800 / (f.pt.x2 - f.pt.x1)) + zoom * 0.5;
+	y = (800 / (f.pt.y2 - f.pt.y1)) + zoom * 0.5;
+	while (++i[0] < 800)
 	{
 		i[1] = -1;
-		while (++i[1] < 1000)
+		while (++i[1] < 800)
 		{
 			j[2] = i[0] / x + f.pt.x1;
 			j[3] = i[1] / y + f.pt.y1;
@@ -54,5 +54,5 @@ void	Julia(int zoom, t_mlx f, float test)
 		}
 	}
 	mlx_put_image_to_window(f.mlx, f.win, f.MB->img, 0, 0);
-	mlx_destroy_image(f.mlx, f.MB->img);
+//	mlx_destroy_image(f.mlx, f.MB->img);
 }
