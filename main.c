@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 09:10:53 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/09 11:19:37 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/09 11:42:30 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ int	mouse_hook(int button, int x, int y, void *param)
 	static int	zoom = 0;
 
 	tmp = (t_mlx*)param;
-	(void)x;
-	(void)y;
 	if (button == 6)
 	{
 		zoom += 10;
@@ -41,7 +39,10 @@ int	mouse_hook(int button, int x, int y, void *param)
 		tmp->pt.x2 -= (((tmp->pt.x2 - tmp->pt.x1) - (((tmp->pt.x2 - tmp->pt.x1) * x) / 1600)) * 0.1);
 		tmp->pt.y1 += ((((tmp->pt.y2 - tmp->pt.y1) * y) / 1000) * 0.1);
 		tmp->pt.y2 -= (((tmp->pt.y2 - tmp->pt.y1) - (((tmp->pt.y2 - tmp->pt.y1) * y) / 1000)) * 0.1);
-		Mandelbrot(zoom, *tmp);
+		if (tmp->c == 'm')
+			Mandelbrot(zoom, *tmp);
+		else if (tmp->c == 'j')
+			Julia(zoom, *tmp);
 	}
 	else if (button == 7)
 	{
@@ -50,7 +51,10 @@ int	mouse_hook(int button, int x, int y, void *param)
 		tmp->pt.x2 += (tmp->pt.x2 - tmp->pt.x1) - (((tmp->pt.x2 - tmp->pt.x1) * x) / 1600);
 		tmp->pt.y1 -= (((tmp->pt.y2 - tmp->pt.y1) * y) / 1000);
 		tmp->pt.y2 += (tmp->pt.y2 - tmp->pt.y1) - (((tmp->pt.y2 - tmp->pt.y1) * y) / 1000);
-		Mandelbrot(zoom, *tmp);
+		if (tmp->c == 'm')
+			Mandelbrot(zoom, *tmp);
+		else if (tmp->c == 'j')
+			Julia(zoom, *tmp);
 	}
 	return (1);
 }

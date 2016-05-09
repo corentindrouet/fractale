@@ -6,11 +6,12 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 10:23:58 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/09 11:20:00 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/09 11:50:09 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractale.h"
+#include <stdio.h>
 
 void	init_mandelbrot(t_mlx *fract, void *mlx)
 {
@@ -20,6 +21,7 @@ void	init_mandelbrot(t_mlx *fract, void *mlx)
 	(*fract).pt.x2 = 0.6;
 	(*fract).pt.y1 = -1.2;
 	(*fract).pt.y2 = 1.2;
+	(*fract).c = 'm';
 }
 
 void	init_julia(t_mlx *fract, void *mlx)
@@ -30,6 +32,7 @@ void	init_julia(t_mlx *fract, void *mlx)
 	(*fract).pt.x2 = 1;
 	(*fract).pt.y1 = -1.2;
 	(*fract).pt.y2 = 1.2;
+	(*fract).c = 'j';
 }
 
 t_mlx	*init_win(void *mlx, char **argv)
@@ -45,7 +48,7 @@ t_mlx	*init_win(void *mlx, char **argv)
 	while (argv[++i])
 		if (ft_tolower(argv[i][0]) == 'm')
 			init_mandelbrot(&(fract[0]), mlx);
-		else if (ft_tolower(argv[i][0] == 'j'))
+		else if (ft_tolower(argv[i][0]) == 'j')
 			init_julia(&(fract[1]), mlx);
 	return (fract);
 }

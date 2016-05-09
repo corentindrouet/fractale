@@ -6,14 +6,14 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 12:46:02 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/09 11:14:37 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/09 11:27:25 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractale.h"
-#include <stdio.h>
+#include <math.h>
 
-void	Mandelbrot(/*t_mlx *mlx, */int zoom, t_mlx f/*, t_coord pt, t_img *MB*/)
+void	Mandelbrot(int zoom, t_mlx f)
 {
 	int		i[4];
 	float	x;

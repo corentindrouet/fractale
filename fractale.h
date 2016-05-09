@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 09:12:22 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/09 11:15:01 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/09 11:33:19 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct		s_mlx
 	void			*win;
 	t_coord			pt;
 	t_img			*MB;
+	char			c;
 }					t_mlx;
 
 typedef struct		s_all
