@@ -6,7 +6,7 @@
 #    By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/08 14:32:27 by cdrouet           #+#    #+#              #
-#    Updated: 2016/05/09 12:53:14 by cdrouet          ###   ########.fr        #
+#    Updated: 2016/05/10 14:36:18 by cdrouet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,11 @@ NAME = fractol
 
 SRC = main.c \
 	  img.c \
-	  Mandelbrot.c \
-	  Julia.c \
+	  mandelbrot.c \
+	  julia.c \
 	  init_win.c \
 	  event.c \
+	  zoom.c \
 
 BIN = $(SRC:.c=.o)
 
