@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 12:46:02 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/09 14:56:55 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/10 08:54:18 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	Mandelbrot(int zoom, t_mlx f)
 	float	y;
 	float	j[5];
 
-//	f.MB = t_img_init(f.mlx, 1600, 1000);
 	f.MB->color = mlx_get_color_value(f.mlx, 0x0000FF);
 	i[0] = -1;
 	i[3] = 50 + zoom * 1.5;
@@ -54,5 +53,4 @@ void	Mandelbrot(int zoom, t_mlx f)
 		}
 	}
 	mlx_put_image_to_window(f.mlx, f.win, f.MB->img, 0, 0);
-//	mlx_destroy_image(f.mlx, f.MB->img);
 }

@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 10:23:58 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/09 14:56:28 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/10 08:21:57 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	init_mandelbrot(t_mlx *fract, void *mlx)
 	(*fract).zoom = 0;
 	(*fract).enable = 0;
 	(*fract).MB = t_img_init(mlx, 800, 800);
+	(*fract).dim = 0;
 }
 
 void	init_julia(t_mlx *fract, void *mlx)
@@ -39,6 +40,7 @@ void	init_julia(t_mlx *fract, void *mlx)
 	(*fract).zoom = 0;
 	(*fract).enable = 0;
 	(*fract).MB = t_img_init(mlx, 800, 800);
+	(*fract).dim = 0;
 }
 
 t_mlx	*init_win(void *mlx, char **argv)

@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 09:12:22 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/09 14:38:09 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/10 08:21:58 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct		s_mlx
 	char			c;
 	int				zoom;
 	int				enable;
+	float			dim;
 }					t_mlx;
 
 typedef struct		s_all

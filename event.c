@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 12:52:06 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/09 14:58:22 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/10 08:21:55 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	mouse_hook(int button, int x, int y, void *param)
 		if (tmp->c == 'm')
 			Mandelbrot(tmp->zoom, *tmp);
 		else if (tmp->c == 'j')
-			Julia(tmp->zoom, *tmp, 0);
+			Julia(tmp->zoom, *tmp, tmp->dim);
 	}
 	else if (button == 7)
 	{
@@ -61,21 +61,21 @@ int	mouse_hook(int button, int x, int y, void *param)
 		if (tmp->c == 'm')
 			Mandelbrot(tmp->zoom, *tmp);
 		else if (tmp->c == 'j')
-			Julia(tmp->zoom, *tmp, 0);
+			Julia(tmp->zoom, *tmp, tmp->dim);
 	}
 	return (1);
 }
 
 int	mouse_move(int x, int y, t_mlx *param)
 {
-	float	prout = 0;
+//	float	prout = 0;
 	float	tmp;
 
 	if (param->enable && x >= 0 && x <= 800 && y >= 0 && y <= 800)
 	{
 		tmp = x + y;
-		prout = (tmp - 800) / 1000;
-		Julia(param->zoom, *param, prout);
+		param->dim = (tmp - 800) / 1000;
+		Julia(param->zoom, *param, param->dim);
 	}
 	return (0);
 }
