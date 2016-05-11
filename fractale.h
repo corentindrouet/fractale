@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 09:12:22 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/10 14:46:51 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/11 11:20:03 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <mlx.h>
 # include "libft/libft.h"
 # include "touch.h"
+# include <math.h>
 
 typedef struct		s_pts
 {
@@ -51,7 +52,6 @@ typedef struct		s_mlx
 	int				zoom;
 	int				enable;
 	float			dim;
-	t_img			*charge;
 }					t_mlx;
 
 typedef struct		s_all
@@ -67,6 +67,7 @@ int					keypress(int keycode, t_mlx *param);
 int					mouse_hook(int button, int x, int y, void *param);
 t_mlx				*init_win(void *mlx, char **argv);
 void				mandelbrot(int zoom, t_mlx f);
+void				burning_ship(int zoom, t_mlx f);
 void				julia(int zoom, t_mlx f, float test);
 int					write_img(int x, int y, t_img *jpg);
 t_img				*t_img_init(void *mlx, int x, int y);

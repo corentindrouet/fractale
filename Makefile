@@ -6,7 +6,7 @@
 #    By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/08 14:32:27 by cdrouet           #+#    #+#              #
-#    Updated: 2016/05/10 14:36:18 by cdrouet          ###   ########.fr        #
+#    Updated: 2016/05/11 11:21:05 by cdrouet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRC = main.c \
 	  init_win.c \
 	  event.c \
 	  zoom.c \
+	  burning_ship.c \
 
 BIN = $(SRC:.c=.o)
 

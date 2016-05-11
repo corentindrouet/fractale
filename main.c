@@ -6,17 +6,31 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 09:10:53 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/10 09:56:03 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/11 11:46:14 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractale.h"
 #include <stdio.h>
 
-void	error(void)
+void	error(int argc, char **argv)
 {
-	ft_printf("Argument invalide !\nOption :\nMandelbrot\nJulia\nProut\n");
-	exit(0);
+	int	i;
+
+	if (argc <= 1)
+	{
+		ft_printf("Argument invalide !\nOption :\nMandelbrot\nJulia\nBurning_ship\n");
+		exit(0);
+	}
+	i = 0;
+	while (++i < argc)
+		if (!(!ft_strcmp(ft_strmap(argv[i], (char(*)(char))ft_tolower), "mandelbrot")
+			|| !ft_strcmp(ft_strmap(argv[i], (char(*)(char))ft_tolower), "julia")
+			|| !ft_strcmp(ft_strmap(argv[i], (char(*)(char))ft_tolower), "burning_ship")))
+		{
+			ft_printf("Argument invalide !\nOption :\nMandelbrot\nJulia\nBurning_ship\n");
+			exit(0);
+		}
 }
 
 int		main(int argc, char **argv)
@@ -25,11 +39,7 @@ int		main(int argc, char **argv)
 	int		i;
 	void	*mlx;
 
-	if (argc == 1 || (ft_strcmp(ft_strmap(argv[1],
-		(char(*)(char))ft_tolower), "mandelbrot")
-		&& ft_strcmp(ft_strmap(argv[1], (char(*)(char))ft_tolower), "julia")
-		&& ft_strcmp(ft_strmap(argv[1], (char(*)(char))ft_tolower), "prout")))
-		error();
+	error(argc, argv);
 	mlx = mlx_init();
 	all.fract = init_win(mlx, argv);
 	i = -1;

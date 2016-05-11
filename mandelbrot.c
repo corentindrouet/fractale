@@ -6,12 +6,11 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 12:46:02 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/10 14:57:36 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/11 11:25:19 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractale.h"
-#include <math.h>
 
 void	calcul_m(int *i, float *j)
 {
@@ -44,7 +43,6 @@ void	mandelbrot(int zoom, t_mlx f)
 	float	j[5];
 
 	f.mb->color = mlx_get_color_value(f.mlx, 0x0003FF);
-	f.charge->color = mlx_get_color_value(f.mlx, 0x00FF00);
 	i[0] = -1;
 	i[3] = 100 + zoom * (zoom / 80);
 	x = (800 / (f.pt.x2 - f.pt.x1)) + zoom * 0.5;
@@ -62,10 +60,6 @@ void	mandelbrot(int zoom, t_mlx f)
 			calcul_m(i, j);
 			write_pixel_m(i, f);
 		}
-		i[1] = -1;
-		while (++i[1] < 20)
-			write_img(i[1], i[0], f.charge);
-		mlx_put_image_to_window(f.mlx, f.win, f.charge->img, 0, 0);
 	}
-	mlx_put_image_to_window(f.mlx, f.win, f.mb->img, 0, 20);
+	mlx_put_image_to_window(f.mlx, f.win, f.mb->img, 0, 0);
 }

@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/10 14:32:43 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/10 14:37:18 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/11 11:20:49 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	zoom_plus(int x, int y, t_mlx *tmp)
 		mandelbrot(tmp->zoom, *tmp);
 	else if (tmp->c == 'j')
 		julia(tmp->zoom, *tmp, tmp->dim);
+	else if (tmp->c == 'b')
+		burning_ship(tmp->zoom, *tmp);
 }
 
 void	zoom_moin(int x, int y, t_mlx *tmp)
@@ -36,4 +38,6 @@ void	zoom_moin(int x, int y, t_mlx *tmp)
 		mandelbrot(tmp->zoom, *tmp);
 	else if (tmp->c == 'j')
 		julia(tmp->zoom, *tmp, tmp->dim);
+	else if (tmp->c == 'b')
+		burning_ship(tmp->zoom, *tmp);
 }
