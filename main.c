@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 09:10:53 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/11 11:46:14 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/11 14:46:47 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,26 @@ void	error(int argc, char **argv)
 		}
 }
 
+int		glob(int n)
+{
+	static int	nb_win = 0;
+
+	nb_win += n;
+	return (nb_win);
+}
+
 int		main(int argc, char **argv)
 {
 	t_all	all;
 	int		i;
 	void	*mlx;
 
+	all.mandelbrot = 0;
+	all.julia = 0;
+	all.burning_ship = 0;
 	error(argc, argv);
 	mlx = mlx_init();
-	all.fract = init_win(mlx, argv);
+	all.fract = init_win(mlx, argv, &all);
 	i = -1;
 	while (++i < 3)
 		if (all.fract[i].win)

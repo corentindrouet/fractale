@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 09:12:22 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/11 11:20:03 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/11 14:46:46 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,19 @@ typedef struct		s_mlx
 typedef struct		s_all
 {
 	t_mlx			*fract;
+	int				mandelbrot;
+	int				julia;
+	int				burning_ship;
 }					t_all;
 
+int					glob(int n);
 void				zoom_plus(int x, int y, t_mlx *tmp);
 void				zoom_moin(int x, int y, t_mlx *tmp);
 int					keyrelease(int code, t_mlx *param);
 int					mouse_move(int x, int y, t_mlx *param);
 int					keypress(int keycode, t_mlx *param);
 int					mouse_hook(int button, int x, int y, void *param);
-t_mlx				*init_win(void *mlx, char **argv);
+t_mlx				*init_win(void *mlx, char **argv, t_all *all);
 void				mandelbrot(int zoom, t_mlx f);
 void				burning_ship(int zoom, t_mlx f);
 void				julia(int zoom, t_mlx f, float test);

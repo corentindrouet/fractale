@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 12:52:06 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/10 14:41:05 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/11 14:46:44 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ int	keypress(int keycode, t_mlx *param)
 	if (keycode == ESC)
 	{
 		mlx_destroy_window(param->mlx, param->win);
-		exit(0);
+		glob(-1);
+		if (glob(0) == 0)
+			exit(0);
 	}
 	if (keycode == ESP)
 	{
