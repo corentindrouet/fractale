@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/11 11:13:07 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/11 11:25:24 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/11 14:52:15 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ void	burning_ship(int zoom, t_mlx f)
 	float	y;
 	float	j[5];
 
-	f.mb->color = mlx_get_color_value(f.mlx, 0xFF0000);
+	f.mb->color = mlx_get_color_value(f.mlx, 0x770000);
 	i[0] = -1;
-	i[3] = 100 + zoom * (zoom / 80);
+	i[3] = 50 + zoom;
 	x = (800 / (f.pt.x2 - f.pt.x1)) + zoom * 0.5;
 	y = (800 / (f.pt.y2 - f.pt.y1)) + zoom * 0.5;
 	while (++i[0] < 800)
