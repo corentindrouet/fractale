@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/11 11:13:07 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/11 14:52:15 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/12 10:48:16 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	write_pixel_b(int *i, t_mlx f)
 		write_img(i[1], i[0], f.mb);
 	else
 	{
-		f.mb->color = mlx_get_color_value(f.mlx, (i[2] * 0x0000FF / i[3]) << 16);
+		f.mb->color = mlx_get_color_value(f.mlx,
+			(i[2] * 0x0000FF / i[3]) << 16);
 		write_img(i[1], i[0], f.mb);
 		f.mb->color = mlx_get_color_value(f.mlx, 0xFF0000);
 	}

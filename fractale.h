@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 09:12:22 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/11 14:46:46 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/12 09:41:15 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ typedef struct		s_all
 	int				burning_ship;
 }					t_all;
 
+void				reset_img(t_mlx *param);
 int					glob(int n);
 void				zoom_plus(int x, int y, t_mlx *tmp);
 void				zoom_moin(int x, int y, t_mlx *tmp);

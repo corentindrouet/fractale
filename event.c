@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 12:52:06 by cdrouet           #+#    #+#             */
-/*   Updated: 2016/05/11 14:46:44 by cdrouet          ###   ########.fr       */
+/*   Updated: 2016/05/12 09:36:49 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,13 @@ int	keypress(int keycode, t_mlx *param)
 			exit(0);
 	}
 	if (keycode == ESP)
-	{
 		param->enable = 1;
-	}
+	if (keycode == PLUS)
+		zoom_plus(399, 399, param);
+	if (keycode == MOIN)
+		zoom_moin(399, 399, param);
+	if (keycode == ENTER)
+		reset_img(param);
 	return (0);
 }
 
